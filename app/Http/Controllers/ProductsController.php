@@ -30,7 +30,7 @@ class ProductsController extends Controller
      */
     // public function create()
     // {
-    //     //
+    //     
     // }
 
     /**
@@ -63,8 +63,11 @@ class ProductsController extends Controller
      */
     public function show($id)
     {
-        $response = ['message' =>  'show function'];
-        return response($response, 200);    }
+        $product = Product::find($id);
+
+        return response(['product'=>$product], 200);  
+    
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -90,7 +93,7 @@ class ProductsController extends Controller
         if(!isset($product)){
             return response()->json(['message'=>'Error: product does not exist'], 404);
         }
-        $product = Product::update($request->all());
+        $product = Product::find($id)->update($request->all());
         return response()->json(['message'=>'Product updated.', 'product'=>$product], 200);
 
     }
@@ -107,6 +110,8 @@ class ProductsController extends Controller
         if(!isset($product)){
             return response()->json(['message'=>'Record does not exist.'], 404);
         }
+        $product->delete();
         
-        return response(['product'=>$product, 'message'=>'successfully deleted [product].'], 200);    }
+        return response()->json(['product'=>$product, 'message'=>'successfully deleted [product].'], 200);    
+    }
 }

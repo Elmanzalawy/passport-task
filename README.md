@@ -5,4 +5,4 @@
 
 ## Current Features
 - users can register, login, and log out
-- users can add, view, and remove products (work in progress)
+- users can add, view, edit, and remove products 
