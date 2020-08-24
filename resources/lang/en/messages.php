@@ -32,4 +32,6 @@ return [
 
     'historyEmpty' => 'No recent purchase',
 
+    'categoryCreated'=>'Successfully created category',
+
 ];

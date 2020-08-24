@@ -50,6 +50,9 @@ Route::group(['middleware' => ['cors', 'json.response']], function () {
         
         //History routes
         Route::get('/history','Product\HistoryController@index');
+
+        //Category routes
+        Route::resource('category','Product\CategoryController');
         
         //logout if user is already logged in (requires valid token)
         Route::post('/logout', 'Auth\ApiAuthController@logout')->name('logout.api');

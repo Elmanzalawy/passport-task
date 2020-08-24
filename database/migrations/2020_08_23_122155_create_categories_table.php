@@ -16,8 +16,8 @@ class CreateCategoriesTable extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             // $table->integer('product_id')->unsigned();
-            $table->string('name');
-            //user_id
+            $table->string('name')->unique();
+            $table->integer('user_id')->unsigned();
             $table->timestamps();
         });
     }

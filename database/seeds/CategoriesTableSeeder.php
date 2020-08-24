@@ -17,22 +17,30 @@ class CategoriesTableSeeder extends Seeder
          DB::table('categories')->insert(
             array(
                 array(
-                    'name'=>'Electronics'
+                    'name'=>'Electronics',
+                    'user_id'=>rand(1,10),
                 ),
                 array(
-                    'name'=>'Fashion'
+                    'name'=>'Fashion',
+                    'user_id'=>rand(1,10),
+
                 ),
                 array(
-                    'name'=>'Home Appliances'
+                    'name'=>'Home Appliances',
+                    'user_id'=>rand(1,10),
                 ),
                 array(
-                    'name'=>'Jewelry'
+                    'name'=>'Jewelry',
+                    'user_id'=>rand(1,10),
                 ),
                 array(
-                    'name'=>'Health and Beauty'
+                    'name'=>'Health and Beauty',
+                    'user_id'=>rand(1,10),
+
                 ),
                 array(
-                    'name'=>'Sports and Fitness'
+                    'name'=>'Sports and Fitness',
+                    'user_id'=>rand(1,10),
                 ),
             )
          );

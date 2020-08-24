@@ -6,3 +6,6 @@
 ## Current Features
 - users can register, login, and log out
 - users can add, view, edit, and remove products 
+- users can add products to cart
+- users can view purchase history
+- users can create new categories
