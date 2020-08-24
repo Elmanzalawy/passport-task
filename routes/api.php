@@ -33,7 +33,24 @@ Route::group(['middleware' => ['cors', 'json.response']], function () {
         // our routes to be protected will go in here
         Route::get('test', 'Auth\ApiAuthController@test'); //used to debug auth issues
         //product api routes (incomplete)
-        Route::apiResource('/product','ProductsController');
+        Route::apiResource('/product','Product\ProductsController');
+        Route::post('/product/purchase/{id}', 'Product\ProductsController@purchase');
+
+
+        //Cart routes 
+        Route::delete('/cart','Product\CartController@emptyCart');
+        Route::post('/cart/buy/{id}','Product\CartController@buyCartItem');
+        Route::get('/cart/buyall','Product\CartController@buyAllCartItems');
+        Route::apiResource('/cart','Product\CartController');
+        // Route::get('/cart','Product\CartController@index');
+        // Route::get('/cart/{id}','Product\CartController@showCartItem');
+        Route::post('/cart/{id}', 'Product\CartController@store');
+        // Route::put('/cart/{id}','Product\CartController@updateCartItem');
+        // Route::delete('/cart/{id}','Product\CartController@deleteCartItem');
+        
+        //History routes
+        Route::get('/history','Product\HistoryController@index');
+        
         //logout if user is already logged in (requires valid token)
         Route::post('/logout', 'Auth\ApiAuthController@logout')->name('logout.api');
     });

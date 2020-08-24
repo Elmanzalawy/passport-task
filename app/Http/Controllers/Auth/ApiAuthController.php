@@ -45,15 +45,15 @@ class ApiAuthController extends Controller
     public function login (Request $request) {
         //setting rules for user login through the validator class
         $validator = Validator::make($request->all(), [
-            'email' => 'required|string|email|max:255',
-            'password' => 'required|string|min:6|confirmed',
+            'name' => 'required|string|max:255',
+            'password' => 'required|string|min:6',
         ]);
         if ($validator->fails())
         {
             //return validator errors if it fails
             return response(['errors'=>$validator->errors()->all()], 422);
         }
-        $user = User::where('email', $request->email)->first();
+        $user = User::where('name', $request->name)->first();
         if ($user) {
             if (Hash::check($request->password, $user->password)) {
                 $token = $user->createToken('Laravel Password Grant Client')->accessToken;
